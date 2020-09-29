@@ -5,7 +5,7 @@ import Person from './Person/Person';
 function App() {
   return (
     <div className="App">
-      <Person />
+        <Person name="Max" age="29">My Hobies: Racing</Person>
     </div>
   );
 }
