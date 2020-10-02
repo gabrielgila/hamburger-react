@@ -24,7 +24,7 @@ class App extends Component {
                 { name: 'Stephani', age: 27 }
             ]
         })
-    }
+    };
 
     nameChangedHandler = (event) => {
         this.setState({
@@ -43,27 +43,34 @@ class App extends Component {
     };
 
     render() {
+
+        let persons = null;
+
+        if (this.state.showPersons) {
+            persons = (
+                <div>
+                    <Person
+                        name={this.state.persons[0].name}
+                        age={this.state.persons[0].age} />
+                    <Person
+                        name={this.state.persons[1].name}
+                        age={this.state.persons[1].age}
+                        click={this.switchNameHandler.bind(this, 'Max!')}
+                        changed={this.nameChangedHandler}>
+                        My Hobbies: Racing </Person>
+                    <Person
+                        name={this.state.persons[2].name}
+                        age={this.state.persons[2].age} />
+                </div>
+            );
+        }
+
         return (
             <div className="App">
                 <h1>Is working</h1>
                 <button
                     onClick={this.tooglePersonsHandler}>Switch Name</button>
-
-                        <div>
-                            <Person
-                                name={this.state.persons[0].name}
-                                age={this.state.persons[0].age} />
-                            <Person
-                                name={this.state.persons[1].name}
-                                age={this.state.persons[1].age}
-                                click={this.switchNameHandler.bind(this, 'Max!')}
-                                changed={this.nameChangedHandler}>
-                                My Hobbies: Racing </Person>
-                            <Person
-                            name={this.state.persons[2].name}
-                            age={this.state.persons[2].age} />
-                        </div> :
-
+                {persons}
             </div>
         );
     }
