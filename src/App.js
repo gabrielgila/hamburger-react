@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import Radium from 'radium';
+import Radium, {StyleRoot} from 'radium';
 import Person from './Person/Person';
 
 class App extends Component {
@@ -54,7 +54,11 @@ class App extends Component {
             font: 'inherit',
             border: '1px solid blue',
             padding: '8px',
-            cursos: 'pointer'
+            cursos: 'pointer',
+            ':hover': {
+                backgroundColor: 'lightgreen',
+                color: 'black'
+            }
         };
 
         let persons = null;
@@ -74,6 +78,10 @@ class App extends Component {
             );
 
             style.backgroundColor= 'red';
+            style[':hover'] = {
+                backgroundColor: 'lightgreen',
+                color: 'black'
+            }
         }
 
         let classes = [];
@@ -85,6 +93,7 @@ class App extends Component {
         }
 
         return (
+            <StyleRoot>
             <div className="App">
                 <h1>Is working</h1>
                 <p className={classes}>This is working</p>
@@ -93,6 +102,8 @@ class App extends Component {
                     onClick={this.tooglePersonsHandler}>Switch Name</button>
                 {persons}
             </div>
+            </StyleRoot>
+
         );
     }
 }
