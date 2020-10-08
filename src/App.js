@@ -1,6 +1,21 @@
 import React, {Component} from 'react';
+import styled from 'styled-components';
 import './App.css';
 import Person from './Person/Person';
+
+const StyledButton = styled.button`
+    background-color: ${props => props.alt ? 'red' : 'green'};
+    color: white;
+    font: inherit;
+    border: 1px solid blue;
+    padding: 8px;
+    cursos: pointer;
+    
+    &:hover {
+        backgroundColor: ${props => props.alt ? 'salmon' : 'greenlight'};
+        color: black;
+    }
+`;
 
 class App extends Component {
     constructor(props) {
@@ -56,7 +71,7 @@ class App extends Component {
             cursos: 'pointer',
             ':hover': {
                 backgroundColor: 'lightgreen',
-                color: 'black'
+                color: 'black',
             }
         };
 
@@ -96,9 +111,8 @@ class App extends Component {
             <div className="App">
                 <h1>Is working</h1>
                 <p className={classes}>This is working</p>
-                <button
-                    style={style}
-                    onClick={this.tooglePersonsHandler}>Switch Name</button>
+                <StyledButton alt={this.state.showPersons}
+                    onClick={this.tooglePersonsHandler}>Switch Name</StyledButton>
                 {persons}
             </div>
 
