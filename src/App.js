@@ -47,6 +47,14 @@ class App extends Component {
 
     render() {
 
+        const style = {
+            backgroundColor: 'white',
+            font: 'inherit',
+            border: '1px solid blue',
+            padding: '8px',
+            cursos: 'pointer'
+        };
+
         let persons = null;
 
         if (this.state.showPersons) {
@@ -68,6 +76,7 @@ class App extends Component {
             <div className="App">
                 <h1>Is working</h1>
                 <button
+                    style={style}
                     onClick={this.tooglePersonsHandler}>Switch Name</button>
                 {persons}
             </div>
