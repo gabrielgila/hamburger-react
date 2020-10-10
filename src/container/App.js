@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import './App.css';
-import Person from './components/Persons/Person/Person';
+import classes './App.module.css';
+import Persons from '../components/Persons/Persons';
+
 
 class App extends Component {
     constructor(props) {
@@ -46,61 +47,24 @@ class App extends Component {
     };
 
     render() {
-
-        const style = {
-            backgroundColor: 'green',
-            color: 'white',
-            font: 'inherit',
-            border: '1px solid blue',
-            padding: '8px',
-            cursos: 'pointer',
-            ':hover': {
-                backgroundColor: 'lightgreen',
-                color: 'black',
-            }
-        };
-
         let persons = null;
 
         if (this.state.showPersons) {
             persons = (
                 <div>
-                    {this.state.persons.map((person, index) => {
-                        return <Person
-                            click={() => this.deletePersonHandle(index)}
-                            name={person.name}
-                            age={person.age}
-                            key={person.id}
-                            changed={(event) => this.nameChangedHandler(event, person.id)}/>
-                    })}
+                    <Persons
+                        persons={this.state.persons}
+                        clicked={this.deletePersonHandle}
+                        changed={this.nameChangedHandler} />
                 </div>
             );
-
-            style.backgroundColor= 'red';
-            style[':hover'] = {
-                backgroundColor: 'lightgreen',
-                color: 'black'
-            }
-        }
-
-        let classes = [];
-        if (this.state.persons.length <= 2) {
-            classes.push('red');
-        }
-        if (this.state.persons.length <= 1) {
-            classes.push('bold');
         }
 
         return (
-            <div className="App">
-                <h1>Is working</h1>
-                <p className={classes}>This is working</p>
-                <button
-                    onClick={this.tooglePersonsHandler}>Switch Name</button>
+            <div className="classes.App">
+                <Cockpit />
                 {persons}
             </div>
-
-
         );
     }
 }
