@@ -11,18 +11,18 @@ const cockpit = (props) => {
     }
 
     if (props.persons.length <= 2) {
-        assignedClasses.push('red');
+        assignedClasses.push(classes.red);
     }
     if (props.persons.length <= 1) {
-        assignedClasses.push('bold');
+        assignedClasses.push(classes.bold);
     }
 
-    return(
+    return (
         <div className={classes.Cockpit}>
             <h1>Is working</h1>
             <p className={assignedClasses.join('')}>This is working</p>
         <button
-            onClick={this.tooglePersonsHandler}>Switch Name</button>
+            onClick={props.clicked}>Switch Name</button>
         </div>
     );
 };
