@@ -1,7 +1,9 @@
 import React from 'react';
 import Person from './Person/Person';
 
-const person = (props) => props.persons.map((person, index) => {
+const person = (props) =>
+    props.persons.map((person, index) => {
+     console.log('Persons.js')
         return <Person
             click={() => props.clicked(index)}
             name={person.name}

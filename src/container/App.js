@@ -17,6 +17,15 @@ class App extends Component {
         }
     }
 
+    static getDerivedStateFromProps(props, state) {
+        console.log('[App.js] getDerivedStatefromProps', props);
+        return state;
+    }
+
+    componentDidMount() {
+        console.log('App js componentDidMount');
+    }
+
     nameChangedHandler = (event, id) => {
         const personIndex = this.state.persons.findIndex(p => {
             return p.id === id;
@@ -47,6 +56,7 @@ class App extends Component {
     };
 
     render() {
+        console.log('App.js render');
         let persons = null;
 
         if (this.state.showPersons) {
