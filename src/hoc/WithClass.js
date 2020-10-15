@@ -1,6 +1,6 @@
 import React from "react";
 
-const withCLass = props => (
+const withClass = props => (
     <div className={props.classes}>
         {props.children}
     </div>
