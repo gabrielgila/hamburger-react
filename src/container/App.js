@@ -100,14 +100,18 @@ class App extends Component {
                 >
                     Remove Cockpit
                 </button>
-                <Authcontext.Provider>
+                <Authcontext.Provider
+                    value={{
+                        authenticated: this.state.authenticated,
+                        login: this.loginHandler
+                    }}
+                >
                 {this.state.showCockpit ? (
                     <Cockpit
                     title={this.props.appTitle}
                     showPersons={this.state.showPersons}
                     personsLength={this.state.persons.length}
-                    clicked={this.tooglePersonsHandler}
-                    login={this.loginHandler} />
+                    clicked={this.tooglePersonsHandler} />
                     ) : null}
                 {persons}
                 </Authcontext.Provider>
